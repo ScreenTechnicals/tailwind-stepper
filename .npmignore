@@ -1,0 +1,15 @@
+# Ignore development files and directories
+node_modules/
+dist/
+build/
+tmp/
+test/
+*.log
+
+# Ignore configuration files
+*.config.js
+*.env
+
+# Ignore version control files
+.git/
+.gitignore
