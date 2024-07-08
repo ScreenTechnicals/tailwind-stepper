@@ -43,5 +43,9 @@
     "ui",
     "component",
     "library"
-  ]
+  ],
+  "repository": {
+    "url": "https://github.com/ScreenTechnicals/tailwind-stepper"
+  },
+  "homepage": "https://github.com/ScreenTechnicals/tailwind-stepper"
 }
