@@ -10,6 +10,30 @@ Install the package via npm:
 npm install tailwind-stepper
 ```
 
+## Configuration
+
+add the path for tailwind in the `tailwind.config.ts`
+
+```
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "...",
+    "./node_modules/tailwind-stepper/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      "..."
+    },
+  },
+  plugins: ["..."],
+};
+
+export default config;
+
+```
+
 ## Usage Example
 
 Integrate the stepper component into your React application:
