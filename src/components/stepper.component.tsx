@@ -1,30 +1,29 @@
-import type { ComponentProps, ReactNode } from "react";
 import * as React from "react";
 import { useCallback, useMemo } from "react";
 import { twJoin, twMerge } from "tailwind-merge";
 
-export type Step = Pick<ComponentProps<"button">, "onClick"> & {
+export type Step = Pick<React.ComponentProps<"button">, "onClick"> & {
   step: number;
   label: string;
-  icon?: ReactNode;
-  content?: ReactNode;
+  icon?: React.ReactNode;
+  content?: React.ReactNode;
 };
 
-type Slots = {
+export type Slots = {
   wrapper?: string;
   icon?: string;
   label?: string;
   gradientBorder?: string;
 };
 
-type StepItemProps = {
+export type StepItemProps = {
   step: Step;
   isSelected: boolean;
   classNames?: Slots;
   hideLabel?: boolean;
 };
 
-type StepperProps = {
+export type StepperProps = {
   selectedStep: number;
   steps: Step[];
   orientation?: "horizontal" | "vertical";
@@ -35,7 +34,7 @@ type StepperProps = {
   };
 };
 
-type DividerProps = {
+export type DividerProps = {
   orientation?: StepperProps["orientation"];
   className?: string;
 };

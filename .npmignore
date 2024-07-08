@@ -3,13 +3,22 @@ node_modules/
 dist/
 build/
 tmp/
+
+# Ignore test and source files and directories
 test/
 src/
+
 *.log
 
 # Ignore configuration files
 *.config.js
 *.env
+
+# Ignore TypeScript configuration files
+tsconfig.json
+
+# Ignore Rollup configuration files
+rollup.config.js
 
 # Ignore version control files
 .git/
