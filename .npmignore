@@ -4,6 +4,7 @@ dist/
 build/
 tmp/
 test/
+src/
 *.log
 
 # Ignore configuration files

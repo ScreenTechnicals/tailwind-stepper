@@ -1,6 +1,6 @@
 {
   "name": "tailwind-stepper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A UI component library for React and Next",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -29,6 +29,17 @@
     "tailwind-merge": "^2.3.0",
     "typescript": "^5.0.4"
   },
-  "author": "Your Name",
-  "license": "MIT"
+  "author": "Chinmaya Sa",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "next",
+    "typescript",
+    "tailwindcss",
+    "tailwind",
+    "stepper",
+    "ui",
+    "component",
+    "library"
+  ]
 }
