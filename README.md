@@ -4,10 +4,18 @@
 
 ## Installation
 
-Install the package via npm:
+Install the package via npm or yarn or bun:
 
 ```
 npm install tailwind-stepper
+```
+
+```
+yarn add tailwind-stepper
+```
+
+```
+bun add tailwind-stepper
 ```
 
 ## Configuration
