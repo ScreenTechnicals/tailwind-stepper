@@ -1,6 +1,7 @@
 {
   "name": "tailwind-stepper",
-  "version": "1.0.8",
+  "displayName": "Tailwind Stepper",
+  "version": "1.0.9",
   "description": "A UI stepper component for React and Next",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -38,7 +39,20 @@
     "library"
   ],
   "repository": {
-    "url": "https://github.com/ScreenTechnicals/tailwind-stepper"
+    "type": "git",
+    "url": "git+https://github.com/ScreenTechnicals/tailwind-stepper.git"
   },
-  "homepage": "https://github.com/ScreenTechnicals/tailwind-stepper"
+  "homepage": "https://github.com/ScreenTechnicals/tailwind-stepper",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "bugs": {
+    "url": "https://github.com/ScreenTechnicals/tailwind-stepper/issues"
+  },
+  "contributors": [
+    {
+      "name": "Chinmaya Sa",
+      "url": "https://github.com/ScreenTechnicals"
+    }
+  ]
 }
