@@ -1,43 +1,7 @@
 import * as React from "react";
 import { useCallback, useMemo } from "react";
 import { twJoin, twMerge } from "tailwind-merge";
-
-export type Step = Pick<React.ComponentProps<"button">, "onClick"> & {
-  step: number;
-  label: string;
-  icon?: React.ReactNode;
-  content?: React.ReactNode;
-};
-
-export type Slots = {
-  wrapper?: string;
-  icon?: string;
-  label?: string;
-  gradientBorder?: string;
-};
-
-export type StepItemProps = {
-  step: Step;
-  isSelected: boolean;
-  classNames?: Slots;
-  hideLabel?: boolean;
-};
-
-export type StepperProps = {
-  selectedStep: number;
-  steps: Step[];
-  orientation?: "horizontal" | "vertical";
-  hideLabel?: boolean;
-  classNames?: Slots & {
-    base?: string;
-    divider?: string;
-  };
-};
-
-export type DividerProps = {
-  orientation?: StepperProps["orientation"];
-  className?: string;
-};
+import { DividerProps, StepItemProps, StepperProps } from './types';
 
 const GradientDivider = ({ orientation, className }: DividerProps) => (
   <div
@@ -140,18 +104,18 @@ export const Stepper = ({
 
   const renderSteps = useCallback(
     () =>
-      steps.map((step, index) => {
+      steps.map(({step,...restStepProps}, index) => {
         const isLastStep = steps.length - 1 === index;
-        const showSteps =
+        const shouldShowSteps =
           selectedStep <= 2
-            ? step.step <= 2 || isLastStep
-            : step.step <= 1 || isLastStep;
-        const showDivider =
-          steps.length === 4 ? !isLastStep : step.step <= 1 && !isLastStep;
+            ? step <= 2 || isLastStep
+            : step <= 1 || isLastStep;
+        const shouldShowDivider =
+          steps.length === 4 ? !isLastStep : step <= 1 && !isLastStep;
 
         return (
           <div
-            key={step.step}
+            key={step}
             className={twJoin(
               "flex items-center",
               orientation === "vertical" && "flex-col"
@@ -160,23 +124,23 @@ export const Stepper = ({
             {steps.length > 4 && isLastStep && (
               <DashedDivider orientation={orientation} className={divider} />
             )}
-            {showSteps && (
+            {shouldShowSteps && (
               <StepItem
-                step={step}
-                isSelected={step.step === selectedStep}
+                step={{step,...restStepProps}}
+                isSelected={step === selectedStep}
                 classNames={restClassName}
                 hideLabel={hideLabel}
               />
             )}
-            {selectedStep === step.step && selectedStep > 2 && (
+            {selectedStep === step && selectedStep > 2 && (
               <StepItem
-                step={step}
-                isSelected={step.step === selectedStep}
+                step={{step,...restStepProps}}
+                isSelected={step === selectedStep}
                 classNames={restClassName}
                 hideLabel={hideLabel}
               />
             )}
-            {showDivider && (
+            {shouldShowDivider && (
               <GradientDivider orientation={orientation} className={divider} />
             )}
           </div>
@@ -188,8 +152,8 @@ export const Stepper = ({
   return (
     <div
       className={twMerge(
-        "w-full flex flex-col place-content-center place-items-center gap-6",
-        orientation === "vertical" && "flex-row items-start",
+        "w-full flex place-content-center place-items-center gap-6",
+        orientation === "vertical" ? "items-start":"flex-col",
         base
       )}
     >
@@ -201,7 +165,7 @@ export const Stepper = ({
       >
         {renderSteps()}
       </div>
-      {steps.find((step) => step.step === selectedStep)?.content || null}
+      {steps.find(({step}) => step === selectedStep)?.content}
     </div>
   );
 };
