@@ -81,13 +81,13 @@ export default App;
 
 ### Stepper Component
 
-| Prop           | Type                                          | Description                                              |
-| -------------- | --------------------------------------------- | -------------------------------------------------------- |
-| `selectedStep` | `number`                                      | The currently selected step.                             |
-| `steps`        | `Step[]`                                      | Array of steps to display.                               |
-| `orientation`  | `horizontal \| vertical`                      | Orientation of the stepper. Defaults to `'horizontal'`.  |
-| `hideLabel`    | `boolean`                                     | Hides the labels of steps if `true`. Default is `false`. |
-| `classNames`   | `Slots & { base?: string; divider?: string }` | Custom class names for various components.               |
+| Prop           | Type                      | Description                                              |
+| -------------- | ------------------------- | -------------------------------------------------------- |
+| `selectedStep` | `number`                  | The currently selected step.                             |
+| `steps`        | `Step[]`                  | Array of steps to display.                               |
+| `orientation`  | `horizontal \| vertical`  | Orientation of the stepper. Defaults to `'horizontal'`.  |
+| `hideLabel`    | `boolean`                 | Hides the labels of steps if `true`. Default is `false`. |
+| `classNames`   | `StepperClassNames`       | Custom class names for various components.               |
 
 ### Step Object
 
