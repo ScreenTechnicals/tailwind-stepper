@@ -3,7 +3,7 @@
 **Tailwind Stepper** is a customizable React component designed to create intuitive step-by-step user interfaces using Tailwind CSS.
 
 ## Installation
-
+adsfasfadf
 Install the package via npm or yarn or bun:
 
 ```
