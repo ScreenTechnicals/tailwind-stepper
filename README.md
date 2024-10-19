@@ -10,6 +10,9 @@ Install the package via npm or yarn or bun:
 npm install tailwind-stepper
 ```
 
+
+
+
 ```
 yarn add tailwind-stepper
 ```
