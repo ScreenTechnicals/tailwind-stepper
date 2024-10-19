@@ -16,7 +16,7 @@ npm install tailwind-stepper
 yarn add tailwind-stepper
 ```
 
-```
+```dddfdf
 bun add tailwind-stepper
 ```
 
