@@ -28,6 +28,7 @@
   "author": "Chinmaya Sa",
   "license": "MIT",
   "keywords": [
+    "tailwind-stepper",
     "react",
     "next",
     "typescript",
