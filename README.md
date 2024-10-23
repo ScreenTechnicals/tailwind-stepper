@@ -8,16 +8,18 @@ Install the package via npm or yarn or bun:
 
 ```
 npm install tailwind-stepper
-```
-
-
+``
 
 ```
+
 yarn add tailwind-stepper
+
 ```
 
 ```
+
 bun add tailwind-stepper
+
 ```
 
 ## Configuration
@@ -25,24 +27,25 @@ bun add tailwind-stepper
 add the path for tailwind in the `tailwind.config.ts`
 
 ```
+
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "...",
-    "./node_modules/tailwind-stepper/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      "..."
-    },
-  },
-  plugins: ["..."],
+content: [
+"...",
+"./node_modules/tailwind-stepper/**/*.{js,ts,jsx,tsx,mdx}",
+],
+theme: {
+extend: {
+"..."
+},
+},
+plugins: ["..."],
 };
 
 export default config;
 
-```
+````
 
 ## Usage Example
 
@@ -77,19 +80,19 @@ const App = () => {
 };
 
 export default App;
-```
+````
 
 ## Component Props
 
 ### Stepper Component
 
-| Prop           | Type                      | Description                                              |
-| -------------- | ------------------------- | -------------------------------------------------------- |
-| `selectedStep` | `number`                  | The currently selected step.                             |
-| `steps`        | `Step[]`                  | Array of steps to display.                               |
-| `orientation`  | `horizontal \| vertical`  | Orientation of the stepper. Defaults to `'horizontal'`.  |
-| `hideLabel`    | `boolean`                 | Hides the labels of steps if `true`. Default is `false`. |
-| `classNames`   | `StepperClassNames`       | Custom class names for various components.               |
+| Prop           | Type                     | Description                                              |
+| -------------- | ------------------------ | -------------------------------------------------------- |
+| `selectedStep` | `number`                 | The currently selected step.                             |
+| `steps`        | `Step[]`                 | Array of steps to display.                               |
+| `orientation`  | `horizontal \| vertical` | Orientation of the stepper. Defaults to `'horizontal'`.  |
+| `hideLabel`    | `boolean`                | Hides the labels of steps if `true`. Default is `false`. |
+| `classNames`   | `StepperClassNames`      | Custom class names for various components.               |
 
 ### Step Object
 
