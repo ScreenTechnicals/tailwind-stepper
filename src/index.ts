@@ -3,7 +3,7 @@ export {
   type DividerProps,
   type Step,
   type StepItemClassNames,
-  type StepItemProps,
+  type StepItemPr ops,
   type StepperClassNames,
   type StepperProps,
 } from "./lib/types";
