@@ -13,7 +13,7 @@ const GradientDivider = ({ orientation, className }: DividerProps) => (
   />
 );
 
-const DashedDivider = ({ orientation, className }: DividerProps) => {
+const dashedDivider = ({ orientation, className }: DividerProps) => {
   const dividers = useMemo(
     () =>
       Array.from({ length: 6 }).map((_, index) => (
@@ -100,7 +100,7 @@ export const Stepper = ({
   hideLabel,
   classNames,
 }: StepperProps) => {
-  const { divider, base, ...restClassName } = classNames || { divider: "" };
+  const { divider,hello, base, ...restClassName } = classNames || { divider: "" };
 
   const renderSteps = useCallback(
     () =>
@@ -122,7 +122,7 @@ export const Stepper = ({
             )}
           >
             {steps.length > 4 && isLastStep && (
-              <DashedDivider orientation={orientation} className={divider} />
+              <dashedDivider orientation={orientation} className={divider} />
             )}
             {shouldShowSteps && (
               <StepItem
