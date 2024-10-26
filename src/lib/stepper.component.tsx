@@ -75,6 +75,53 @@ export const Stepper = ({
 }: StepperProps) => {
   const { divider, base, ...restClassName } = classNames || { divider: "" };
 
+  const renderSteps = useCallback(
+    () =>
+      steps.map(({step,...restStepProps}, index) => {
+        const isLastStep = steps.length - 1 === index;
+        const shouldShowSteps =
+          selectedStep <= 2
+            ? step <= 2 || isLastStep
+            : step <= 1 || isLastStep;
+        const shouldShowDivider =
+          steps.length === 4 ? !isLastStep : step <= 1 && !isLastStep;
+
+        return (
+          <div
+            key={step}
+            className={twJoin(
+              "flex items-center",
+              orientation === "vertical" && "flex-col"
+            )}
+          >
+            {steps.length > 4 && isLastStep && (
+              // <DashedDivider orientation={orientation} className={divider} />
+            )}
+            {/* {shouldShowSteps && (
+              <StepItem
+                step={{step,...restStepProps}}
+                isSelected={step === selectedStep} */}
+                classNames={restClassName}
+                hideLabel={hideLabel}
+              />
+            )}
+            {selectedStep === step && selectedStep > 2 && (
+              <StepItem
+                step={{step,...restStepProps}}
+                isSelected={step === selectedStep}
+                classNames={restClassName}
+                hideLabel={hideLabel}
+              />
+            )}
+            {shouldShowDivider && (
+              <GradientDivider orientation={orientation} className={divider} />
+            )}
+          </div>
+        );
+      }),
+    [steps, selectedStep, orientation, divider, restClassName, hideLabel]
+  );
+
   return (
     <div
       className={twMerge(
@@ -89,7 +136,7 @@ export const Stepper = ({
           orientation === "vertical" && "flex-col"
         )}
       >
-        {/* {renderSteps()} */}
+        {renderSteps()}
       </div>
       {steps.find(({step}) => step === selectedStep)?.content}
     </div>
