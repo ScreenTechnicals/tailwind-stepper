@@ -2,7 +2,7 @@ export { Stepper } from "./lib/stepper.component";
 export {
   type DividerProps,
   type Step,
-  type Step ItemClassNames,
+  type StepItemClassNames,
   type StepItemProps,
   type StepperClassNames,
   type StepperProps,

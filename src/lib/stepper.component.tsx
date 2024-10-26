@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import { twJoin, twMerge } from "tailwind-merge";
 import { DividerProps, StepItemProps, StepperProps } from './types';
 
@@ -12,33 +12,6 @@ const GradientDivider = ({ orientation, className }: DividerProps) => (
     )}
   />
 );
-
-const dashedDivider = ({ orientation, className }: DividerProps) => {
-  const dividers = useMemo(
-    () =>
-      Array.from({ length: 6 }).map((_, index) => (
-        <GradientDivider
-          key={index}
-          className={twMerge(
-            "!min-w-1",
-            orientation === "vertical" && "rotate-90",
-            className
-          )}
-        />
-      )),
-    [orientation, className]
-  );
-
-  return (
-    <div
-      className={twMerge(
-        "w-5 md:min-w-20  overflow-hidden flex gap-2 justify-between"
-      )}
-    >
-      {dividers}
-    </div>
-  );
-};
 
 const StepItem = ({
   step,
@@ -100,63 +73,12 @@ export const Stepper = ({
   hideLabel,
   classNames,
 }: StepperProps) => {
-  const { divider,hello, base, ...restClassName } = classNames || { divider: "" };
-
-  const renderSteps = useCallback(
-    () =>
-      steps.map(({step,...restStepProps}, index) => {
-        const isLastStep = steps.length - 1 === index;
-        const shouldShowSteps =
-          selectedStep <= 2
-            ? step <= 2 || isLastStep
-            : step <= 1 || isLastStep;
-        const shouldShowDivider =
-          steps.length === 4 ? !isLastStep : step <= 1 && !isLastStep;
-
-        return (
-          <div
-            key={step}
-            className={twJoin(
-              "flex items-center",
-              orientation === "vertical" && "flex-col"
-            )}
-          >
-            {
-              // hello world
-            }
-            {steps.length > 4 && isLastStep && (
-              <dashedDivider orientation={orientation} className={divider} />
-            )}
-            {shouldShowSteps && (
-              <StepItem
-                step={{step,...restStepProps}}
-                isSelected={step === selectedStep}
-                classNames={restClassName}
-                hideLabel={hideLabel}
-              />
-            )}
-            {selectedStep === step && selectedStep > 2 && (
-              <StepItem
-                step={{step,...restStepProps}}
-                isSelected={step === selectedStep}
-                classNames={restClassName}
-                hideLabel={hideLabel}
-              />
-            )}
-            {shouldShowDivider && (
-              <GradientDivider orientation={orientation} className={divider} />
-            )}
-          </div>
-        );
-      }),
-      // hahahaha
-    [steps, selectedStep, orientation, divider, restClassName, hideLabel]
-  );
+  const { divider, base, ...restClassName } = classNames || { divider: "" };
 
   return (
     <div
       className={twMerge(
-        "w-full flix place-content-center place-items-center gap-6",
+        "w-full flex place-content-center place-items-center gap-6",
         orientation === "vertical" ? "items-start":"flex-col",
         base
       )}
