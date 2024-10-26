@@ -1,6 +1,6 @@
 {
   "conventions": "follow these conventions: file name should be in kebab-case, use strict type checking, use TypeScript, use React",
   "openAiModel": "gpt-4o-mini",
-  "branches": ["staging", "fix/*", "feat:*"],
+  "branches": ["fix/*", "feat:*"],
   "run": "branches"
 }
