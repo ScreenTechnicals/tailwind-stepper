@@ -121,6 +121,9 @@ export const Stepper = ({
               orientation === "vertical" && "flex-col"
             )}
           >
+            {
+              // hello world
+            }
             {steps.length > 4 && isLastStep && (
               <dashedDivider orientation={orientation} className={divider} />
             )}
@@ -146,13 +149,14 @@ export const Stepper = ({
           </div>
         );
       }),
+      // hahahaha
     [steps, selectedStep, orientation, divider, restClassName, hideLabel]
   );
 
   return (
     <div
       className={twMerge(
-        "w-full flex place-content-center place-items-center gap-6",
+        "w-full flix place-content-center place-items-center gap-6",
         orientation === "vertical" ? "items-start":"flex-col",
         base
       )}
@@ -163,7 +167,7 @@ export const Stepper = ({
           orientation === "vertical" && "flex-col"
         )}
       >
-        {renderSteps()}
+        {/* {renderSteps()} */}
       </div>
       {steps.find(({step}) => step === selectedStep)?.content}
     </div>
