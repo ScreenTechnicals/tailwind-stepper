@@ -40,7 +40,7 @@ const DashedDivider = ({ orientation, className }: DividerProps) => {
   );
 };
 
-const StepItem = ({
+const stepItem = ({
   step,
   isSelected,
   classNames,
@@ -100,7 +100,7 @@ export const Stepper = ({
   hideLabel,
   classNames,
 }: StepperProps) => {
-  const { divider, base, ...restClassName } = classNames || { divider: "" };
+  const { divider,f, base, ...restClassName } = classNames || { divider: "" };
 
   const renderSteps = useCallback(
     () =>
@@ -125,7 +125,7 @@ export const Stepper = ({
               <DashedDivider orientation={orientation} className={divider} />
             )}
             {shouldShowSteps && (
-              <StepItem
+              <stepItem
                 step={{step,...restStepProps}}
                 isSelected={step === selectedStep}
                 classNames={restClassName}
@@ -133,7 +133,7 @@ export const Stepper = ({
               />
             )}
             {selectedStep === step && selectedStep > 2 && (
-              <StepItem
+              <stepItem
                 step={{step,...restStepProps}}
                 isSelected={step === selectedStep}
                 classNames={restClassName}
