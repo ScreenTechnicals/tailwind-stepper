@@ -3,5 +3,8 @@
   "openAiModel": "gpt-4o-mini",
   "branches": ["fix/*", "feat:*"],
   "run": "branches",
-  "autoReply": false
+  "autoReply": false,
+  "summary": {
+    "enabled": true
+  }
 }

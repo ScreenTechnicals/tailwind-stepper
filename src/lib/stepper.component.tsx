@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useCallback, useMemo } from "react";
 import { twJoin, twMerge } from "tailwind-merge";
-import { DividerProps, StepItemProps, StepperProps } from './types';
+import { DividerProps, StepItemProps, StepperProps } from "./types";
 
 const GradientDivider = ({ orientation, className }: DividerProps) => (
   <div
@@ -86,7 +86,7 @@ const StepItem = ({
             hideLabel && "hidden"
           )}
         >
-          {step.label}
+          hello
         </span>
       )}
     </span>
@@ -104,12 +104,10 @@ export const Stepper = ({
 
   const renderSteps = useCallback(
     () =>
-      steps.map(({step,...restStepProps}, index) => {
+      steps.map(({ step, ...restStepProps }, index) => {
         const isLastStep = steps.length - 1 === index;
         const shouldShowSteps =
-          selectedStep <= 2
-            ? step <= 2 || isLastStep
-            : step <= 1 || isLastStep;
+          selectedStep <= 2 ? step <= 2 || isLastStep : step <= 1 || isLastStep;
         const shouldShowDivider =
           steps.length === 4 ? !isLastStep : step <= 1 && !isLastStep;
 
@@ -126,20 +124,20 @@ export const Stepper = ({
             )}
             {shouldShowSteps && (
               <StepItem
-                step={{step,...restStepProps}}
+                step={{ step, ...restStepProps }}
                 isSelected={step === selectedStep}
                 classNames={restClassName}
                 hideLabel={hideLabel}
               />
             )}
-            {selectedStep === step && selectedStep > 2 && (
+            {/* {selectedStep === step && selectedStep > 2 && (
               <StepItem
-                step={{step,...restStepProps}}
+                step={{ step, ...restStepProps }}
                 isSelected={step === selectedStep}
                 classNames={restClassName}
                 hideLabel={hideLabel}
               />
-            )}
+            )} */}
             {shouldShowDivider && (
               <GradientDivider orientation={orientation} className={divider} />
             )}
@@ -153,11 +151,11 @@ export const Stepper = ({
     <div
       className={twMerge(
         "w-full flex place-content-center place-items-center gap-6",
-        orientation === "vertical" ? "items-start":"flex-col",
+        orientation === "vertical" ? "items-start" : "flex-col",
         base
       )}
     >
-      <div
+      {/* <div
         className={twJoin(
           "flex items-center w-fit",
           orientation === "vertical" && "flex-col"
@@ -165,7 +163,7 @@ export const Stepper = ({
       >
         {renderSteps()}
       </div>
-      {steps.find(({step}) => step === selectedStep)?.content}
+      {steps.find(({ step }) => step === selectedStep)?.content} */}
     </div>
   );
 };
