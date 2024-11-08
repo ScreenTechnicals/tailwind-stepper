@@ -55,26 +55,26 @@ const StepItem = ({
       isSelected ? "min-w-max mx-px" : "",
       isSelected && step.onClick ? "group pointer-events-auto" : ""
     )}
-  >
-    {isSelected && (
-      <span
-        className={twMerge(
-          "absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,_rgba(35,47,80,1)_0%,_rgba(81,102,134,1)_35%,_rgba(122,158,255,1)_100%)]",
-          classNames?.gradientBorder
-        )}
-      />
-    )}
-    <span
-      className={twMerge(
-        "flex items-center group-hover:bg-gray-900 transition-colors gap-2 relative pointer-events-none bg-slate-700 rounded-full overflow-hidden p-2",
-        classNames?.wrapper || ""
-      )}
-    >
-      <span
-        className={twMerge(
-          "bg-slate-900 ring-slate-800 md:text-base text-xs ring-4 rounded-full w-4 h-4 md:w-6 md:h-6 flex items-center justify-center",
-          classNames?.icon || ""
-        )}
+  // >
+  //   {isSelected && (
+  //     <span
+  //       className={twMerge(
+  //         "absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,_rgba(35,47,80,1)_0%,_rgba(81,102,134,1)_35%,_rgba(122,158,255,1)_100%)]",
+  //         classNames?.gradientBorder
+  //       )}
+  //     />
+  //   )}
+  //   <span
+  //     className={twMerge(
+  //       "flex items-center group-hover:bg-gray-900 transition-colors gap-2 relative pointer-events-none bg-slate-700 rounded-full overflow-hidden p-2",
+  //       classNames?.wrapper || ""
+  //     )}
+  //   >
+  //     <span
+  //       className={twMerge(
+  //         "bg-slate-900 ring-slate-800 md:text-base text-xs ring-4 rounded-full w-4 h-4 md:w-6 md:h-6 flex items-center justify-center",
+  //         classNames?.icon || ""
+  //       )}
       >
         {step.icon || step.step + 1}
       </span>
@@ -119,23 +119,7 @@ export const Stepper = ({
             className={twJoin(
               "flex items-center",
               orientation === "vertical" && "flex-col"
-            )}
-          >
-            {steps.length > 4 && isLastStep && (
-              <DashedDivider orientation={orientation} className={divider} />
-            )}
-            {shouldShowSteps && (
-              <StepItem
-                step={{step,...restStepProps}}
-                isSelected={step === selectedStep}
-                classNames={restClassName}
-                hideLabel={hideLabel}
-              />
-            )}
-            {selectedStep === step && selectedStep > 2 && (
-              <StepItem
-                step={{step,...restStepProps}}
-                isSelected={step === selectedStep}
+ 
                 classNames={restClassName}
                 hideLabel={hideLabel}
               />
