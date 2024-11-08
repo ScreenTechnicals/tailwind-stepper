@@ -4,6 +4,4 @@ export {
   type Step,
   type StepItemClassNames,
   type StepItemProps,
-  type StepperClassNames,
-  type StepperProps,
 } from "./lib/types";

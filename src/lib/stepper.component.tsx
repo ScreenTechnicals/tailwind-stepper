@@ -7,7 +7,7 @@ const GradientDivider = ({ orientation, className }: DividerProps) => (
   <div
     className={twMerge(
       "w-5 md:min-w-20 h-px bg-gradient-to-r dark:from-white/50 dark:via-white/50 dark:to-white/50 light:from-black/50 light:via-black/50 light:to-black/50",
-      orientation === "vertical" && "my-2 w-px md:min-w-px md:min-h-20 h-5",
+      // orientation === "vertical" && "my-2 w-px md:min-w-px md:min-h-20 h-5",
       className
     )}
   />

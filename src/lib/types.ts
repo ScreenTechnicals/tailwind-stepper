@@ -12,17 +12,17 @@ export type Step = Pick<ComponentProps<"button">, "onClick"> & {
   //   string
   // >;
 
-  // export type StepItemClassNames = Record<
-  //   "wrapper" | "icon" | "label" | "gradientBorder",
-  //   string
-  // >;
+  export type StepItemClassNames = Record<
+    "wrapper" | "icon" | "label" | "gradientBorder",
+    string
+  >;
 
-  // export type StepItemProps = {
-  //   step: Step;
-  //   isSelected: boolean;
-  //   classNames?: Partial<StepItemClassNames>;
-  //   hideLabel?: boolean;
-  // };
+  export type StepItemProps = {
+    step: Step;
+    isSelected: boolean;
+    classNames?: Partial<StepItemClassNames>;
+    hideLabel?: boolean;
+  };
 
   // export type StepperProps = {
   //   selectedStep: number;
