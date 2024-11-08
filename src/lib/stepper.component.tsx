@@ -56,7 +56,7 @@ const StepItem = ({
       isSelected && step.onClick ? "group pointer-events-auto" : ""
     )}
   >
-    {isSelected && (
+    {/* {isSelected && (
       <span
         className={twMerge(
           "absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,_rgba(35,47,80,1)_0%,_rgba(81,102,134,1)_35%,_rgba(122,158,255,1)_100%)]",
@@ -88,7 +88,7 @@ const StepItem = ({
         >
           {step.label}
         </span>
-      )}
+      )} */}
     </span>
   </button>
 );
@@ -160,10 +160,10 @@ export const Stepper = ({
       <div
         className={twJoin(
           "flex items-center w-fit",
-          orientation === "vertical" && "flex-col"
+          // orientation === "vertical" && "flex-col"
         )}
       >
-        {renderSteps()}
+        {/* {renderSteps()} */}
       </div>
       {steps.find(({step}) => step === selectedStep)?.content}
     </div>
