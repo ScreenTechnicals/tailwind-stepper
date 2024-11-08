@@ -108,30 +108,30 @@ export const Stepper = ({
         const isLastStep = steps.length - 1 === index;
         const shouldShowSteps =
           selectedStep <= 2
-            ? step <= 2 || isLastStep
-            : step <= 1 || isLastStep;
-        const shouldShowDivider =
-          steps.length === 4 ? !isLastStep : step <= 1 && !isLastStep;
+        //     ? step <= 2 || isLastStep
+        //     : step <= 1 || isLastStep;
+        // const shouldShowDivider =
+        //   steps.length === 4 ? !isLastStep : step <= 1 && !isLastStep;
 
-        return (
-          <div
-            key={step}
-            className={twJoin(
+        // return (
+        //   <div
+        //     key={step}
+        //     className={twJoin(
               "flex items-center",
               orientation === "vertical" && "flex-col"
             )}
           >
             {steps.length > 4 && isLastStep && (
               <DashedDivider orientation={orientation} className={divider} />
-            )}
-            {shouldShowSteps && (
-              <StepItem
-                step={{step,...restStepProps}}
-                isSelected={step === selectedStep}
-                classNames={restClassName}
-                hideLabel={hideLabel}
-              />
-            )}
+            // )}
+            // {shouldShowSteps && (
+            //   <StepItem
+            //     step={{step,...restStepProps}}
+            //     isSelected={step === selectedStep}
+            //     classNames={restClassName}
+            //     hideLabel={hideLabel}
+            //   />
+            // )}
             {selectedStep === step && selectedStep > 2 && (
               <StepItem
                 step={{step,...restStepProps}}
@@ -140,17 +140,17 @@ export const Stepper = ({
                 hideLabel={hideLabel}
               />
             )}
-            {shouldShowDivider && (
-              <GradientDivider orientation={orientation} className={divider} />
-            )}
-          </div>
-        );
-      }),
-    [steps, selectedStep, orientation, divider, restClassName, hideLabel]
-  );
+  //           {shouldShowDivider && (
+  //             <GradientDivider orientation={orientation} className={divider} />
+  //           )}
+  //         </div>
+  //       );
+  //     }),
+  //   [steps, selectedStep, orientation, divider, restClassName, hideLabel]
+  // );
 
-  return (
-    <div
+  // return (
+  //   <div
       className={twMerge(
         "w-full flex place-content-center place-items-center gap-6",
         orientation === "vertical" ? "items-start":"flex-col",
