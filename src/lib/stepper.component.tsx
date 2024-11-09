@@ -8,7 +8,7 @@ const GradientDivider = ({ orientation, className }: DividerProps) => (
     className={twMerge(
       "w-5 md:min-w-20 h-px bg-gradient-to-r dark:from-white/50 dark:via-white/50 dark:to-white/50 light:from-black/50 light:via-black/50 light:to-black/50",
       orientation === "vertical" && "my-2 w-px md:min-w-px md:min-h-20 h-5",
-      className
+      // className
     )}
   />
 );
@@ -31,9 +31,9 @@ const DashedDivider = ({ orientation, className }: DividerProps) => {
 
   return (
     <div
-      className={twMerge(
-        "w-5 md:min-w-20  overflow-hidden flex gap-2 justify-between"
-      )}
+      // className={twMerge(
+      //   "w-5 md:min-w-20  overflow-hidden flex gap-2 justify-between"
+      // )}
     >
       {dividers}
     </div>
@@ -43,7 +43,7 @@ const DashedDivider = ({ orientation, className }: DividerProps) => {
 const StepItem = ({
   step,
   isSelected,
-  classNames,
+  // classNames,
   hideLabel,
 }: StepItemProps) => (
   <button
@@ -60,7 +60,7 @@ const StepItem = ({
       <span
         className={twMerge(
           "absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,_rgba(35,47,80,1)_0%,_rgba(81,102,134,1)_35%,_rgba(122,158,255,1)_100%)]",
-          classNames?.gradientBorder
+          // classNames?.gradientBorder
         )}
       />
     )}
@@ -71,9 +71,9 @@ const StepItem = ({
       )}
     >
       <span
-        className={twMerge(
-          "bg-slate-900 ring-slate-800 md:text-base text-xs ring-4 rounded-full w-4 h-4 md:w-6 md:h-6 flex items-center justify-center",
-          classNames?.icon || ""
+        // className={twMerge(
+        //   "bg-slate-900 ring-slate-800 md:text-base text-xs ring-4 rounded-full w-4 h-4 md:w-6 md:h-6 flex items-center justify-center",
+        //   classNames?.icon || ""
         )}
       >
         {step.icon || step.step + 1}
@@ -82,7 +82,6 @@ const StepItem = ({
         <span
           className={twMerge(
             "md:text-base text-xs",
-            classNames?.label,
             hideLabel && "hidden"
           )}
         >
@@ -113,17 +112,7 @@ export const Stepper = ({
         const shouldShowDivider =
           steps.length === 4 ? !isLastStep : step <= 1 && !isLastStep;
 
-        return (
-          <div
-            key={step}
-            className={twJoin(
-              "flex items-center",
-              orientation === "vertical" && "flex-col"
-            )}
-          >
-            {steps.length > 4 && isLastStep && (
-              <DashedDivider orientation={orientation} className={divider} />
-            )}
+    
             {shouldShowSteps && (
               <StepItem
                 step={{step,...restStepProps}}

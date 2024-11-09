@@ -7,20 +7,15 @@ export type Step = Pick<ComponentProps<"button">, "onClick"> & {
   content?: ReactNode;
 };
 
-export type StepperClassNames = Record<
-  "wrapper" | "icon" | "label" | "gradientBorder" | "base" | "divider",
-  string
->;
-
-export type StepItemClassNames = Record<
-  "wrapper" | "icon" | "label" | "gradientBorder",
-  string
->;
+// export type StepperClassNames = Record<
+//   "wrapper" | "icon" | "label" | "gradientBorder" | "base" | "divider",
+//   string
+// >;
 
 export type StepItemProps = {
   step: Step;
   isSelected: boolean;
-  classNames?: Partial<StepItemClassNames>;
+  // classNames?: Partial<StepItemClassNames>;
   hideLabel?: boolean;
 };
 
@@ -29,7 +24,7 @@ export type StepperProps = {
   steps: Step[];
   orientation?: "horizontal" | "vertical";
   hideLabel?: boolean;
-  classNames?: Partial<StepperClassNames>;
+  // classNames?: Partial<StepperClassNames>;
 };
 
 export type DividerProps = {
