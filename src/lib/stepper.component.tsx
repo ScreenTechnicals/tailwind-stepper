@@ -1,14 +1,14 @@
 import * as React from "react";
 import { useCallback, useMemo } from "react";
 import { twJoin, twMerge } from "tailwind-merge";
-import { DividerProps, StepItemProps, StepperProps } from './types';
+import { DividerProps, StepItemProps, StepperProps } from "./types";
 
 const GradientDivider = ({ orientation, className }: DividerProps) => (
   <div
     className={twMerge(
       "w-5 md:min-w-20 h-px bg-gradient-to-r dark:from-white/50 dark:via-white/50 dark:to-white/50 light:from-black/50 light:via-black/50 light:to-black/50",
       orientation === "vertical" && "my-2 w-px md:min-w-px md:min-h-20 h-5",
-      // className
+      className
     )}
   />
 );
@@ -31,9 +31,9 @@ const DashedDivider = ({ orientation, className }: DividerProps) => {
 
   return (
     <div
-      // className={twMerge(
-      //   "w-5 md:min-w-20  overflow-hidden flex gap-2 justify-between"
-      // )}
+      className={twMerge(
+        "w-5 md:min-w-20  overflow-hidden flex gap-2 justify-between"
+      )}
     >
       {dividers}
     </div>
@@ -43,7 +43,7 @@ const DashedDivider = ({ orientation, className }: DividerProps) => {
 const StepItem = ({
   step,
   isSelected,
-  // classNames,
+  classNames,
   hideLabel,
 }: StepItemProps) => (
   <button
@@ -60,7 +60,7 @@ const StepItem = ({
       <span
         className={twMerge(
           "absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,_rgba(35,47,80,1)_0%,_rgba(81,102,134,1)_35%,_rgba(122,158,255,1)_100%)]",
-          // classNames?.gradientBorder
+          classNames?.gradientBorder
         )}
       />
     )}
@@ -71,9 +71,9 @@ const StepItem = ({
       )}
     >
       <span
-        // className={twMerge(
-        //   "bg-slate-900 ring-slate-800 md:text-base text-xs ring-4 rounded-full w-4 h-4 md:w-6 md:h-6 flex items-center justify-center",
-        //   classNames?.icon || ""
+        className={twMerge(
+          "bg-slate-900 ring-slate-800 md:text-base text-xs ring-4 rounded-full w-4 h-4 md:w-6 md:h-6 flex items-center justify-center",
+          classNames?.icon || ""
         )}
       >
         {step.icon || step.step + 1}
@@ -82,6 +82,7 @@ const StepItem = ({
         <span
           className={twMerge(
             "md:text-base text-xs",
+            classNames?.label,
             hideLabel && "hidden"
           )}
         >
@@ -103,19 +104,27 @@ export const Stepper = ({
 
   const renderSteps = useCallback(
     () =>
-      steps.map(({step,...restStepProps}, index) => {
+      steps.map(({ step, ...restStepProps }, index) => {
         const isLastStep = steps.length - 1 === index;
         const shouldShowSteps =
-          selectedStep <= 2
-            ? step <= 2 || isLastStep
-            : step <= 1 || isLastStep;
+          selectedStep <= 2 ? step <= 2 || isLastStep : step <= 1 || isLastStep;
         const shouldShowDivider =
           steps.length === 4 ? !isLastStep : step <= 1 && !isLastStep;
 
-    
+        return (
+          <div
+            key={step}
+            className={twJoin(
+              "flex items-center",
+              orientation === "vertical" && "flex-col"
+            )}
+          >
+            {steps.length > 4 && isLastStep && (
+              <DashedDivider orientation={orientation} className={divider} />
+            )}
             {shouldShowSteps && (
               <StepItem
-                step={{step,...restStepProps}}
+                step={{ step, ...restStepProps }}
                 isSelected={step === selectedStep}
                 classNames={restClassName}
                 hideLabel={hideLabel}
@@ -123,7 +132,7 @@ export const Stepper = ({
             )}
             {selectedStep === step && selectedStep > 2 && (
               <StepItem
-                step={{step,...restStepProps}}
+                step={{ step, ...restStepProps }}
                 isSelected={step === selectedStep}
                 classNames={restClassName}
                 hideLabel={hideLabel}
@@ -142,7 +151,7 @@ export const Stepper = ({
     <div
       className={twMerge(
         "w-full flex place-content-center place-items-center gap-6",
-        orientation === "vertical" ? "items-start":"flex-col",
+        orientation === "vertical" ? "items-start" : "flex-col",
         base
       )}
     >
@@ -154,7 +163,7 @@ export const Stepper = ({
       >
         {renderSteps()}
       </div>
-      {steps.find(({step}) => step === selectedStep)?.content}
+      {steps.find(({ step }) => step === selectedStep)?.content}
     </div>
   );
 };
