@@ -1,16 +1,6 @@
 import { ComponentProps, ReactNode } from "react";
 
 export type Step = Pick<ComponentProps<"button">, "onClick"> & {
-  step: number;
-  label: string;
-  icon?: ReactNode;
-  content?: ReactNode;
-};
-
-export type StepperClassNames = Record<
-  "wrapper" | "icon" | "label" | "gradientBorder" | "base" | "divider",
-  string
->;
 
 export type StepItemClassNames = Record<
   "wrapper" | "icon" | "label" | "gradientBorder",
