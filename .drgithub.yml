@@ -1,0 +1,40 @@
+model: "gpt-4o-mini"
+review:
+  enabled: true
+  ignore:
+    label: []
+    title: []
+    branch: []
+  stop-on:
+    closed: true
+    locked: false
+    merged: true
+  profile: "assertive"
+  tone: "informal"
+summary:
+  enabled: true
+  ignore:
+    label: []
+    title: []
+    branch: []
+  stop-on:
+    closed: true
+    locked: false
+    merged: true
+  profile: "assertive"
+  tone: "informal"
+chat:
+  enabled: true
+  ignore:
+    label: []
+    title: []
+    branch: []
+  stop-on:
+    closed: true
+    locked: false
+    merged: true
+  auto: true
+  profile: "assertive"
+  tone: "informal"
+language: "Hindi (India)"
+early-access: false
