@@ -1,6 +1,9 @@
 model: "gpt-4o-mini"
+language: "English (United States)"
+early-access: false
 review:
   enabled: true
+  tone: "informal"
   ignore:
     label: []
     title: []
@@ -9,10 +12,11 @@ review:
     closed: true
     locked: false
     merged: true
-  profile: "assertive"
-  tone: "informal"
+  tools:
+    profile: "assertive"
 summary:
   enabled: true
+  tone: "informal"
   ignore:
     label: []
     title: []
@@ -21,10 +25,9 @@ summary:
     closed: true
     locked: false
     merged: true
-  profile: "assertive"
-  tone: "informal"
 chat:
   enabled: true
+  tone: "informal"
   ignore:
     label: []
     title: []
@@ -34,7 +37,3 @@ chat:
     locked: false
     merged: true
   auto: true
-  profile: "assertive"
-  tone: "informal"
-language: "Hindi (India)"
-early-access: false
