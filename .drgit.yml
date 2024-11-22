@@ -1,0 +1,6 @@
+# model: "gpt-4o-mini"
+language: "Bhojpuri (India)"
+# early-access: false
+review:
+  enabled: false
+  tone: "informal"
