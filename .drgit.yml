@@ -1,5 +1,5 @@
 # model: "gpt-4o-mini"
-language: "Bhojpuri (India)"
+language: "English (Unisted States)"
 # early-access: false
 review:
   enabled: false
